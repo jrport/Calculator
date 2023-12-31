@@ -3,20 +3,6 @@ const btnList = document.querySelectorAll(".row>button");
 
 const symbSet = new Set(["-","+","×","÷","←"])
 const simpleOp = new Set(["+","-"])
-const convertSet = new Set(["Enter","*","/","Backspace"])
-//const convertMap = new Map([["/","÷"],["*", "×"], ["Enter","="],["Backspace","←"]])
-
-//document.addEventListener("keydown",(kEvent)=>{
-//    if (convertSet.has(kEvent.key)) {
-//        console.log(kEvent.key);
-//        console.log(convertMap[String(kEvent.key)])
-//        addElement(convertMap[kEvent.key]);
-//        return;
-//    }
-//    if ((Number.isInteger(Number(kEvent.key))) || simpleOp.has(kEvent.key)){
-//        addElement(kEvent.key);
-//    }
-//})
 
 btnList.forEach(btn => {
     btn.addEventListener("click", (event) => {
@@ -52,12 +38,12 @@ function reset() {
     operation = "";
     buffer = "";
     result = "";
-    display.textContent = "";
+    display.textContent = "0";
 }
 
 function addElement(element) {
     if ((symbSet.has(element))){
-        switch (buffer) {
+        switch (element) {
             case "":
                 return;
             case "←":
